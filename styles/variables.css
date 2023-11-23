@@ -1,0 +1,21 @@
+:root {
+    --primary-color: #0d8d36;
+    --secondary-color: #adff2f;
+    --text-color: #f2f7f8;
+    --shadow: rgb(148 143 205);
+    --other: #f1ff0747;
+    --disabled: #757575;
+    --box-shadow:rgb(46 52 29);
+    
+}
+
+:root {
+    --font-family: "Heebo";
+    --base-font-size: 16px;
+}
+
+:root {
+    --breakpoint-mobile: 320px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+}
