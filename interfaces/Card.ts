@@ -7,6 +7,7 @@ export interface Card {
 }
 
 export interface CardProps {
+    key: number;
     card: Card;
     onClickCard: (id: number) => void;
 }

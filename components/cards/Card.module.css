@@ -1,24 +1,28 @@
 .card{
     background-color: var(--secondary-color);
-    font-size: 22px;    cursor: pointer;
+    font-size: 22px;    
+    cursor: pointer;
     height: 150px;
     margin: 10px;
     width: 150px;
     position: relative;
     border-radius: 5%;
     box-shadow: 2px 2px 20px var(--box-shadow);
-    
-    @media (min-width: 768px){
-      height: 200px;
-      width: 200px;
-    }
+}
 
+@media (min-width: 768px){
+  .card{
+    height: 200px;
+    width: 200px;
+  }
 }
 
 .cardImage{
     max-width: 100%;
     border-radius: 5%;
+    position: static;
 }
+
 .card-front,
   .card-back {
     position: absolute;
@@ -34,12 +38,18 @@
     padding: 15px;
   }
   
-  .card-back {
+.card-back {
     transform: rotateY(180deg) rotateZ(50deg);
-    font-size: 20px;
+    font-size: 12px;
     user-select: none;
     text-align: center;
     background: var(--secondary-color);
+}
+
+@media (min-width: 768px){
+  .card-back {
+    font-size: 18px;
+  }
 }
 
 .card-info{

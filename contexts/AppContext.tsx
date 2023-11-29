@@ -28,7 +28,6 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
     }, []);
 
     const setMatchedPairs = (matchedPairs: Number[]) => {
-        console.log("CX este si se usa", matchedPairs);
         setPairs(matchedPairs)
     }
 
@@ -49,8 +48,7 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
           cloneList[index] = cloneList[randomIndex];
           cloneList[randomIndex] = original;
       });
-      console.log("TEST suffle",{cloneList});
-
+      
       return cloneList;
     };
 

@@ -1,7 +1,5 @@
 import CardList from '@/components/cards/CardList'
 import { useEffect, useState } from "react";
-// import Card from '@/components/cards/card'
-import { getAllCards } from '../apis/demo-data';
 import styles from "./Home.module.css";
 import useAppContext from "../contexts/AppContext";
 import { Card } from "../interfaces/Card"; 
@@ -28,6 +26,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    console.log("HP useeffect")
     const interval = setInterval(() => {
       setTotalSec((prevTotalSec: number) => {
         return prevTotalSec + 1;
@@ -37,7 +36,7 @@ export default function Home() {
     return () => {
       clearInterval(interval)
     };
-  }, []);
+  }, [setTotalSec]);
 
   useEffect(() => {
     if (selectedCards.length === 2) {
@@ -52,7 +51,6 @@ export default function Home() {
           matchPairsList.includes(card.id) || matchPairsList.includes(card.pair)
               ? { ...card, isOpen: true }
               :{ ...card, isOpen: false }
-              // : card
           )
         );
         setSelectedCards([]);
@@ -71,11 +69,6 @@ export default function Home() {
                 </div>
       </div>
       <CardList cards={listCards} onCardClick={handleCardClick}/>
-      <div className={`${styles["message"]}`}>
-        {matchedPairs.length === listCards.length / 2
-          ? '¡Has ganado!'
-          : 'Encuentra las parejas'}
-      </div>
     </div>
   )
 }
