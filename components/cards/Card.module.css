@@ -17,7 +17,7 @@
   }
 }
 
-.cardImage{
+.card-image{
     max-width: 100%;
     border-radius: 5%;
     position: static;
@@ -58,6 +58,11 @@
   width: 100%;
   height: 100%;
   justify-content: space-between;
+}
+
+.card-info span{
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card.flipped .card-front {

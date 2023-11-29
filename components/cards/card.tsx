@@ -14,7 +14,7 @@ function Card({card, onClickCard}:CardProps){
             <div className={`${styles["card"]} ${isOpen ? styles['flipped'] : ''}`}>
                 <div className={`${styles["card-front"]}`}>
                     {!isOpen ? 
-                    <img className={styles.cardImage} src="/images/riddlerQuestion.jpg" alt="question" /> : ''}
+                    <img className={`${styles["card-image"]}`} src="/images/riddlerQuestion.jpg" alt="question" /> : ''}
                 </div>
                 <div className={`${styles["card-back"]}`}>{isOpen ? 
                     <div className={`${styles["card-info"]}`}>

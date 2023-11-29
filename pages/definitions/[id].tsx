@@ -18,8 +18,8 @@ const DetailConcept: React.FC<DetailConceptProps> = (props) => {
                     {description?.map((line, index) => {
                        return <p key={index}>{line}</p>       
                     })}
-                    <div className={styles.containerImage}>
-                        <Image  className={styles.detailImage} fill src={definition.image} alt={definition.title} />
+                    <div className={`${styles["container-image"]}`}>
+                        <img  className={`${styles["detail-image"]}`} src={definition.image} alt={definition.title} />
                     </div>
                     </>)
                 }

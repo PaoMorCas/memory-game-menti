@@ -1,7 +1,21 @@
 import { Card } from "../interfaces/Card";
 import { Definition } from "../interfaces/Definition";
 
-const DEMO_DATA = [
+const DEFAULT_CARD : Card =  {
+    id: -1,
+    description: "THERE IS NO CARD",
+    pair:-1,
+    isOpen: false,
+};
+
+const DEFAULT_DEFINITION : Definition =  {
+    id: -1,
+    title: "THERE IS NO CARD",
+    description: "",
+    image: '/images/400Error.png',
+};
+
+const DEMO_DATA : Card[] = [
     {
         id: 1,
         description: "SEMVER",
@@ -70,13 +84,12 @@ const DEMO_DATA_DEFINITIONS = [
     {
         id: 4,
         title: "PWA(Aplicacición web progresiva)",
-        description: "Es una combinación entre una página web y una aplicación móvil, con el fin de ofrecer una experiencia similiar a un aplicación nativa, ejecutada en el navegador." +
-        "\n Algunas caraterísticas son:" +
-        "\n Trabajo sin conexión: Pueden funcionar incluso si no hay conexión a internet, guardando datos previamente cargados." +
-        "\n Capacidad de instalación: Puedes instalar una PWA en tu dispositivo, lo que permite acceder a ella desde la pantalla de inicio, como si fuera una app nativa." +
-        "\n Respuesta rápida: Ofrecen tiempos de carga rápidos y una navegación fluida, brindando una experiencia similar a la de una aplicación nativa." +
-        "\n Notificaciones: Pueden enviar notificaciones push, como las aplicaciones móviles, manteniendo a los usuarios informados incluso cuando no están usando la PWA en ese momento." +
-        "\n Los Service Workers son una tecnología fundamental para las Progressive Web Apps (PWAs) y otras aplicaciones web avanzadas. Son scripts en segundo plano que trabajan independientemente de la página web, lo que les permite manejar tareas como notificaciones push, trabajar sin conexión a internet o manejar estrategias de caché para mejorar la velocidad de carga.",
+        description: "Es una combinación entre una página web y una aplicación móvil, con el fin de ofrecer una experiencia similiar a un aplicación nativa, ejecutada en el navegador. Algunas caraterísticas son:" +
+        "\n Trabajo sin conexión: Pueden funcionar incluso si no hay conexión a internet" +
+        "\n Capacidad de instalación: Se puede instalar una PWA, lo que permite acceder a esta como si fuera una app nativa." +
+        "\n Respuesta rápida: Ofrecen tiempos de carga rápidos y una navegación fluida." +
+        "\n Notificaciones: Pueden enviar notificaciones push, como las aplicaciones móviles.",
+        // "\n Los Service Workers son una tecnología fundamental para las Progressive Web Apps (PWAs) y otras aplicaciones web avanzadas. Son scripts en segundo plano que trabajan independientemente de la página web, lo que les permite manejar tareas como notificaciones push, trabajar sin conexión a internet o manejar estrategias de caché para mejorar la velocidad de carga.",
         image: '/images/pwa.png',
     },
     {
@@ -94,7 +107,7 @@ const DEMO_DATA_DEFINITIONS = [
         "\n getServerSideProps(): Es un método que permite cargar datos en cada solicitud al servidor. Es decir que al hacer reload se va a llamar a esta función" +
         "\n getStaticProps(): Cuando se tenga una pagina que no requiere cambio continúo de data, este permite la generación estática de páginas durante el tiempo de compilación. " +
         "\n  getStaticPaths(): Usado en combinación con getStaticProps(), permite generar páginas dinámicas estáticas con fallback.",
-        image: '',
+        image: '/images/serverSide.png',
     },
 ];
 
@@ -103,9 +116,10 @@ export function getAllCards(){
 }
 
 export function getCardInfo(id: number): Card{
-    return DEMO_DATA.find((card) => card.id === id)
+    return DEMO_DATA.find((card) => card.id === id) || DEFAULT_CARD;
+
 } 
 
 export function getDefinitionCard(id: number): Definition{
-    return DEMO_DATA_DEFINITIONS.find(card => card.id === id);
+    return DEMO_DATA_DEFINITIONS.find(card => card.id === id) || DEFAULT_DEFINITION;
 }
